@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="178fc05a-dd5f-4e85-b6c7-b75f2de471f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ProjetoLFA_Automatos_finitos_deteministico.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/split.py" afterDir="false" />
-    </list>
+    <list default="true" id="178fc05a-dd5f-4e85-b6c7-b75f2de471f0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1791583016361</updated>
-      <workItem from="1791583017045" duration="7506000" />
+      <workItem from="1791583017045" duration="7832000" />
     </task>
     <servers />
   </component>
