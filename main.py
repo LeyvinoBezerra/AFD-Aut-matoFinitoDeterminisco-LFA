@@ -15,8 +15,67 @@
 
 # q0 = q0
 # F  = {q1}
+# Exemplo de AFD (Autômato Finito Determinístico)
 
-# definindo as estruturas
+# M = {Q, Σ, δ, q0, F}
+
+# Conjunto de estados
+# Q = {q0, q1, q2}
+
+# Alfabeto
+# Σ = {a, b}
+
+# Função de transição δ:
+#q1
+
+# Estado inicial
+# q0 = q0
+
+# Conjunto de estados finais
+# F = {q2}
+
+# Esse autômato aceita todas as palavras que terminam com "ab".
+# Exemplos aceitos: "ab", "aab", "bbbab", "aaab"
+# Exemplos não aceitos: "aaa", "bbb", "ba"
+# Exemplo de AFD (Autômato Finito Determinístico)
+# Não Aceito
+# Exemplo de AFD (Autômato Finito Determinístico)
+#
+# M = {Q, Σ, δ, q0, F}
+#
+# Conjunto de estados:
+# Q = {q0, q1, q2}
+#
+# Alfabeto:
+# Σ = {a, b}
+#
+# Função de transição δ:
+# δ(q0, a) -> q1
+# δ(q0, b) -> q0
+# δ(q1, a) -> q1
+# δ(q1, b) -> q2
+# δ(q2, a) -> q2
+# δ(q2, b) -> q2
+#
+# Estado inicial:
+# q0 = q0
+#
+# Conjunto de estados finais:
+# F = {q2}
+#
+# Esse autômato aceita todas as palavras que terminam com "ab".
+#
+# Exemplos de palavras ACEITAS:
+# "ab"     -> q0 --a--> q1 --b--> q2 (final)
+# "aab"    -> q0 --a--> q1 --a--> q1 --b--> q2 (final)
+# "bbbab"  -> q0 --b--> q0 --b--> q0 --b--> q0 --a--> q1 --b--> q2 (final)
+# "aaab"   -> q0 --a--> q1 --a--> q1 --a--> q1 --b--> q2 (final)
+#
+# Exemplos de palavras NÃO ACEITAS:
+# "aaa"    -> q0 --a--> q1 --a--> q1 --a--> q1 (termina em q1, não final)
+# "bbb"    -> q0 --b--> q0 --b--> q0 --b--> q0 (termina em q0, não final)
+# "ba"     -> q0 --b--> q0 --a--> q1 (termina em q1, não final)
+
 
 def ler_entrada(prompt, valor_padrao=None):
     print(prompt, end="")
