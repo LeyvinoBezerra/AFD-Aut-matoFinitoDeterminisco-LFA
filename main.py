@@ -1,6 +1,4 @@
 # Disciplina LFA Professora: Amanda Gordin de Oliveira
-from xml.dom import NoModificationAllowedErr
-
 # AFD - Autômato Finito Determinisco
 
 # M = {Q, Σ, δ, q0, F}
@@ -20,59 +18,66 @@ from xml.dom import NoModificationAllowedErr
 
 # definindo as estruturas
 
+def ler_entrada(prompt, valor_padrao=None):
+    print(prompt, end="")
+    try:
+        valor = input()
+        if valor == "":
+            if valor_padrao is not None:
+                print(f"(uso padrão: {valor_padrao})")
+                return valor_padrao
+            return valor
+        return valor
+    except EOFError:
+        if valor_padrao is not None:
+            print(f"(uso padrão: {valor_padrao})")
+            return valor_padrao
+        return ""
+
+
 estados = []
 alfabeto = []
 func_transicao = {}
 estado_inicial = ""
-estados_aceitação = []
+estados_aceitacao = []
 
 # recebendo os dados do autômato
-print("Informe o conjunto de estados: ", end="")
-estados = input().split()
-
-print("Informe o conjunto de alfabeto de entrada: ", end="")
-alfabeto = input().split()
-
-print("Informe o estado inicial: ", end="")
-estado_inicial = input().split()
-
-print("Informe o estado aceitação: ", end="")
-estados_aceitação = input().split()
+estados = ler_entrada("Informe o conjunto de estados: ", "q0 q1").split()
+alfabeto = ler_entrada("Informe o conjunto de alfabeto de entrada: ", "0 1").split()
+estado_inicial = ler_entrada("Informe o estado inicial: ", "q0").strip()
+estados_aceitacao = ler_entrada("Informe o estado aceitação: ", "q1").split()
 
 print("Defina as funções de transição:")
 for estado in estados:
     for simbolo in alfabeto:
         print(f"\t {simbolo} ")
         print(f"{estado} \t --------->\t", end="")
-        proximo_estado = input()
+        proximo_estado = ler_entrada("", "q1")
 
         if proximo_estado == ".":
             func_transicao[(estado, simbolo)] = None
         else:
-            func_transicao[(estado, simbolo)] = proximo_estado
+            func_transicao[(estado, simbolo)] = proximo_estado.strip()
+
 # reconhecer linguagens
-print("Informe a linguagem a ser reconhecida: ", end="")
-entrada = input()
+entrada = ler_entrada("Informe a linguagem a ser reconhecida: ", "01")
 
 estado_atual = estado_inicial
+aceito = True
 
-for simbolo in alfabeto:
-    print(f"Estado atual: {estado_atual}")
-    print(f"Estado atual: {simbolo}")
+for simbolo in entrada:
+    proximo_estado = func_transicao.get((estado_atual, simbolo))
 
-    print(f"Proximo estado: {func_transicao[(estado_atual, simbolo)]}")
-
-    estado_atual = func_transicao[(estado_atual, simbolo)]
-
-    if estado_atual == None:
-        print("O automato não reconheceu a linguagem")
+    if proximo_estado is None:
+        aceito = False
         break
 
-    if estado_atual in estados_aceitação:
-        print("Reconhecido")
-    else:
-        print("Não Reconhecido")
+    estado_atual = proximo_estado
 
+aceito = aceito and estado_atual in estados_aceitacao
 
-
+if aceito:
+    print("Reconhecido")
+else:
+    print("Não Reconhecido")
 
